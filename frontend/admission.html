@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Admission Form</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+<div class="logo-area">
+    <img src="images/logo.jpeg" class="logo">
+    <h1>Berries Kids School, Mullana</h1>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="academics.html">Academics</a>
+<a href="admission.html" class="active">Admission</a>
+<a href="gallery.html">Gallery</a>
+<a href="faculty.html">Faculty</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<h2 class="form-title">Admission Form</h2>
+
+<form id="admissionForm" class="form-box">
+
+<label>Student Name</label>
+<input type="text" id="name" placeholder="Enter student name" required>
+
+<label>Father Name</label>
+<input type="text" id="father" placeholder="Enter father name" required>
+
+<label>Email</label>
+<input type="email" id="email" placeholder="Enter email" required>
+
+<label>Class</label>
+<select id="class">
+<option>Nursery</option>
+<option>LKG</option>
+<option>UKG</option>
+<option>1st</option>
+</select>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

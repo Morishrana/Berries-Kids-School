@@ -1,76 +1,143 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<title>Berries Kids School, Mullana</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="icon" href="./images/logo.jpeg">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berries Kids School, Mullana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo.jpeg">
 </head>
-
 <body>
+    <div class="site-header">
+        <header class="header">
+            <div class="logo-area">
+                <img src="images/logo.jpeg" class="logo" alt="Berries Kids School logo">
+                <div class="brand-text">
+                    <h1>Berries Kids School</h1>
+                    <p>Mullana, Ambala</p>
+                </div>
+            </div>
 
-<header class="header">
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="academics.html">Academics</a>
+                <a href="admission.html">Admission</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="faculty.html">Faculty</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+    </div>
 
-<div class="logo-area">
+    <section class="hero">
+        <div class="hero-copy">
+            <span class="eyebrow">Admissions Open 2026</span>
+            <h2>A happy school where little minds bloom with confidence.</h2>
+            <p>
+                Berries Kids School offers a warm, playful, and secure environment where children build strong basics,
+                joyful memories, and a love for learning from the very beginning.
+            </p>
+            <p class="tagline">Creative classrooms, caring teachers, and a childhood that feels bright from day one.</p>
 
-<img src="images/logo.jpeg" class="logo">
-<h1>Berries Kids School, Mullana</h1>
+            <div class="hero-actions">
+                <button class="apply-btn" onclick="goToAdmission()">Apply for Admission</button>
+                <a class="secondary-btn" href="contact.html">Book an Enquiry</a>
+            </div>
 
-</div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <strong>Playful</strong>
+                    <span>Activity-led learning that keeps children engaged every day.</span>
+                </div>
+                <div class="hero-stat">
+                    <strong>Safe</strong>
+                    <span>A nurturing campus designed for comfort, routine, and care.</span>
+                </div>
+                <div class="hero-stat">
+                    <strong>Strong Start</strong>
+                    <span>Early literacy, communication, and confidence built with intention.</span>
+                </div>
+            </div>
+        </div>
 
-<nav>
+        <div class="hero-visual">
+            <div class="hero-image-frame">
+                <img src="images/activity.jpg" alt="Children doing school activities">
+                <div class="hero-badge">
+                    <strong>Early Years Matter</strong>
+                    <span>We make them inspiring, structured, and full of joy.</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="academics.html">Academics</a>
-<a href="admission.html">Admission</a>
-<a href="gallery.html">Gallery</a>
-<a href="faculty.html">Faculty</a>
-<a href="contact.html">Contact</a>
+    <section class="section">
+        <div class="section-panel">
+            <div class="section-heading">
+                <span class="eyebrow">Why Parents Choose Us</span>
+                <h2>Designed for cheerful learning and steady growth.</h2>
+                <p>
+                    Every part of the school experience is shaped to help children feel welcome, curious, expressive,
+                    and ready to explore.
+                </p>
+            </div>
 
-</nav>
+            <div class="feature-grid">
+                <article class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Smart Classrooms</h3>
+                    <p>Visual, interactive teaching methods that help children understand concepts faster.</p>
+                </article>
 
-</header>
+                <article class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Creative Activity Rooms</h3>
+                    <p>Music, art, movement, and hands-on expression built into everyday learning.</p>
+                </article>
 
+                <article class="card">
+                    <div class="card-icon">🌿</div>
+                    <h3>Playful Open Spaces</h3>
+                    <p>Safe areas for outdoor fun, physical development, and energetic school days.</p>
+                </article>
 
-<section class="hero">
+                <article class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>Modern Learning Support</h3>
+                    <p>Age-appropriate digital exposure that supports curiosity and guided exploration.</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-<h2>Welcome to Berries Kids School</h2>
+    <section class="section">
+        <div class="section-split">
+            <div class="image-panel">
+                <img src="images/class1.jpg" alt="Classroom learning at Berries Kids School">
+            </div>
 
-<p>A joyful place where children learn and grow.</p>
+            <div class="section-panel">
+                <div class="section-heading">
+                    <span class="eyebrow">Our Promise</span>
+                    <h2>Small steps, warm guidance, lasting confidence.</h2>
+                    <p class="lead-copy">
+                        We believe early education should feel secure, expressive, and full of encouragement. Children
+                        learn best when school feels like a place they are excited to return to every morning.
+                    </p>
+                </div>
+                <a class="secondary-btn" href="about.html">Explore Our School Story</a>
+            </div>
+        </div>
+    </section>
 
-<!-- 👇 Backend output yaha show hoga -->
-<p class="tagline">🌟 Admissions Open 2026 🌟</p>
+    <footer>
+        <p>&copy; 2026 Berries Kids School, Mullana</p>
+    </footer>
 
-<button class="apply-btn" onclick="goToAdmission()">Apply for Admission</button>
-</section>
-
-
-<section class="facilities">
-
-<h2>Our Facilities</h2>
-
-<div class="card">📚 Smart Classrooms</div>
-<div class="card">💻 Computer Lab</div>
-<div class="card">🏃 Playground</div>
-<div class="card">🎨 Activity Rooms</div>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 Berries Kids School, Mullana</p>
-
-</footer>
-
-<!-- 👇 JS file connect -->
-<script src="js/script.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
-
 </html>

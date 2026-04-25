@@ -1,53 +1,91 @@
-// Homepage API call
-fetch("http://127.0.0.1:8000/")
-  .then(res => res.json())
-  .then(data => {
-    const output = document.getElementById("output");
-    if (output) {
-      output.innerText = data.message;
-    }
-  })
-  .catch(() => {
-    const output = document.getElementById("output");
-    if (output) {
-      output.innerText = "Server not running ❌";
-    }
-  });
+const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
-
-// Button function
 function goToAdmission() {
-    window.location.href = "admission.html";
+  window.location.href = "admission.html";
 }
 
+function collectFormData(form) {
+  const formData = new FormData(form);
+  const payload = {};
 
-// 👇 FORM SUBMIT CODE (NEW ADD)
-const form = document.getElementById("admissionForm");
+  formData.forEach((value, key) => {
+    payload[key] = value.toString().trim();
+  });
 
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  payload.submitted_at = new Date().toISOString();
+  return payload;
+}
 
-    const data = {
-      name: document.getElementById("name").value,
-      father: document.getElementById("father").value,
-      email: document.getElementById("email").value,
-      student_class: document.getElementById("class").value
-    };
+async function submitToGoogleSheets(form, resultId) {
+  const result = document.getElementById(resultId);
 
-    fetch("http://127.0.0.1:8000/admission", {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("PASTE_YOUR")) {
+    if (result) {
+      result.innerText = "Add your Google Apps Script URL in js/script.js first.";
+      result.className = "result-message error";
+    }
+    return;
+  }
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton ? submitButton.innerText : "";
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.innerText = "Submitting...";
+  }
+
+  if (result) {
+    result.innerText = "Submitting form...";
+    result.className = "result-message";
+  }
+
+  try {
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "text/plain;charset=utf-8"
       },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("result").innerText = data.message;
-      })
-      .catch(() => {
-        document.getElementById("result").innerText = "Error ❌";
-      });
+      body: JSON.stringify(collectFormData(form))
+    });
+
+    const responseData = await response.json();
+
+    if (!response.ok || responseData.status !== "success") {
+      throw new Error(responseData.message || "Submission failed");
+    }
+
+    form.reset();
+
+    if (result) {
+      result.innerText = responseData.message || "Form submitted successfully.";
+      result.className = "result-message success";
+    }
+  } catch (error) {
+    if (result) {
+      result.innerText = error.message || "Unable to submit the form.";
+      result.className = "result-message error";
+    }
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.innerText = originalButtonText;
+    }
+  }
+}
+
+const admissionForm = document.getElementById("admissionForm");
+if (admissionForm) {
+  admissionForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    submitToGoogleSheets(admissionForm, "result");
+  });
+}
+
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    submitToGoogleSheets(contactForm, "contactResult");
   });
 }

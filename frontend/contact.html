@@ -1,65 +1,120 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Contact - Berries Kids School</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Berries Kids School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <div class="site-header">
+        <header class="header">
+            <div class="logo-area">
+                <img src="images/logo.jpeg" class="logo" alt="Berries Kids School logo">
+                <div class="brand-text">
+                    <h1>Berries Kids School</h1>
+                    <p>Mullana, Ambala</p>
+                </div>
+            </div>
 
-<header class="header">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="academics.html">Academics</a>
+                <a href="admission.html">Admission</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="faculty.html">Faculty</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </header>
+    </div>
 
-<div class="logo-area">
-    <img src="images/logo.jpeg" class="logo">
-    <h1>Berries Kids School, Mullana</h1>
-</div>
+    <section class="section">
+        <div class="section-panel">
+            <div class="section-heading">
+                <span class="eyebrow">Contact</span>
+                <h2>Reach the school with ease.</h2>
+                <p>For admissions, school visits, and general enquiries, use the details below or send a message.</p>
+            </div>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="academics.html">Academics</a>
-<a href="admission.html">Admission</a>
-<a href="gallery.html">Gallery</a>
-<a href="faculty.html">Faculty</a>
-<a href="contact.html">Contact</a>
-</nav>
+            <div class="contact-box">
+                <article class="contact-card">
+                    <div class="icon">🏫</div>
+                    <h3>School Name</h3>
+                    <p>Berries Kids School</p>
+                </article>
 
-</header>
+                <article class="contact-card">
+                    <div class="icon">📍</div>
+                    <h3>Address</h3>
+                    <p>Mullana, Ambala</p>
+                </article>
 
-<section class="contact">
+                <article class="contact-card">
+                    <div class="icon">📞</div>
+                    <h3>Phone</h3>
+                    <p>6283970007</p>
+                </article>
 
-<h2>Contact Us 📞</h2>
+                <article class="contact-card">
+                    <div class="icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>berrieskidsschool@gmail.com</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-<div class="contact-box">
+    <section class="contact-form-section">
+        <span class="eyebrow">Enquiry Form</span>
+        <h2 class="form-title">Send an enquiry.</h2>
+        <p class="form-subtitle">
+            Use this form for admission questions, visit requests, or anything you want the school to follow up on.
+        </p>
 
-<div class="contact-card">
-<h3>🏫 School Name</h3>
-<p>Berries Kids School</p>
-</div>
+        <form id="contactForm" class="form-box">
+            <input type="hidden" name="formType" value="contact">
 
-<div class="contact-card">
-<h3>📍 Address</h3>
-<p>Mullana, Ambala</p>
-</div>
+            <div class="form-grid">
+                <div>
+                    <label for="contactName">Parent Name</label>
+                    <input type="text" id="contactName" name="parent_name" placeholder="Enter your name" required>
+                </div>
 
-<div class="contact-card">
-<h3>📞 Phone</h3>
-<p>6283970007</p>
-</div>
+                <div>
+                    <label for="contactPhone">Phone Number</label>
+                    <input type="tel" id="contactPhone" name="phone" placeholder="Enter phone number" required>
+                </div>
 
-<div class="contact-card">
-<h3>📧 Email</h3>
-<p>berrieskidsschool@gmail.com</p>
-</div>
+                <div class="form-field-full">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" name="email" placeholder="Enter email address">
+                </div>
 
-</div>
+                <div class="form-field-full">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" name="message" placeholder="Write your enquiry" rows="5" required></textarea>
+                </div>
+            </div>
 
-</section>
+            <button type="submit">Send Enquiry</button>
+        </form>
 
-<footer>
-<p>© 2026 Berries Kids School, Mullana</p>
-</footer>
+        <p class="form-help">
+            This form also submits to Google Sheets after you add the Apps Script web app URL in
+            <code>frontend/js/script.js</code>.
+        </p>
 
+        <h3 id="contactResult" class="result-message"></h3>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Berries Kids School, Mullana</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

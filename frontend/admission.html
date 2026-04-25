@@ -1,60 +1,90 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Admission Form</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - Berries Kids School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <div class="site-header">
+        <header class="header">
+            <div class="logo-area">
+                <img src="images/logo.jpeg" class="logo" alt="Berries Kids School logo">
+                <div class="brand-text">
+                    <h1>Berries Kids School</h1>
+                    <p>Mullana, Ambala</p>
+                </div>
+            </div>
 
-    <header class="header">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="academics.html">Academics</a>
+                <a href="admission.html" class="active">Admission</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="faculty.html">Faculty</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+    </div>
 
-<div class="logo-area">
-    <img src="images/logo.jpeg" class="logo">
-    <h1>Berries Kids School, Mullana</h1>
-</div>
+    <section class="form-section">
+        <span class="eyebrow">Admissions</span>
+        <h2 class="form-title">Begin your child’s school journey.</h2>
+        <p class="form-subtitle">
+            Fill out the admission enquiry form and the school can follow up with the next steps. The submission
+            logic is unchanged and still works with your Google Apps Script setup.
+        </p>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="academics.html">Academics</a>
-<a href="admission.html" class="active">Admission</a>
-<a href="gallery.html">Gallery</a>
-<a href="faculty.html">Faculty</a>
-<a href="contact.html">Contact</a>
-</nav>
+        <form id="admissionForm" class="form-box">
+            <input type="hidden" name="formType" value="admission">
 
-</header>
+            <div class="form-grid">
+                <div>
+                    <label for="name">Student Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter student name" required>
+                </div>
 
-<h2 class="form-title">Admission Form</h2>
+                <div>
+                    <label for="father">Father Name</label>
+                    <input type="text" id="father" name="father" placeholder="Enter father name" required>
+                </div>
 
-<form id="admissionForm" class="form-box">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email address" required>
+                </div>
 
-<label>Student Name</label>
-<input type="text" id="name" placeholder="Enter student name" required>
+                <div>
+                    <label for="class">Class</label>
+                    <select id="class" name="student_class">
+                        <option>Nursery</option>
+                        <option>LKG</option>
+                        <option>UKG</option>
+                        <option>1st</option>
+                    </select>
+                </div>
+            </div>
 
-<label>Father Name</label>
-<input type="text" id="father" placeholder="Enter father name" required>
+            <button type="submit">Submit Admission Enquiry</button>
+        </form>
 
-<label>Email</label>
-<input type="email" id="email" placeholder="Enter email" required>
+        <p class="form-help">
+            Paste your Google Apps Script web app URL in <code>frontend/js/script.js</code> to save submissions to
+            Google Sheets.
+        </p>
 
-<label>Class</label>
-<select id="class">
-<option>Nursery</option>
-<option>LKG</option>
-<option>UKG</option>
-<option>1st</option>
-</select>
+        <h3 id="result" class="result-message"></h3>
+    </section>
 
-<button type="submit">Submit</button>
+    <footer>
+        <p>&copy; 2026 Berries Kids School, Mullana</p>
+    </footer>
 
-</form>
-
-<h3 id="result"></h3>
-
-<script src="js/script.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
